@@ -1,0 +1,49 @@
+.register-bg {
+  height: 100vh;
+  background: linear-gradient(to right, #642b73, #c6426e);
+  overflow-x: hidden;
+  padding: 30px 0 0;
+}
+
+.register-bg h1 {
+  letter-spacing: 5px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 900;
+}
+
+.form-box {
+  padding: 30px;
+  border-radius: 30px;
+}
+.reg-btn-main {
+  display: flex;
+  justify-content: center;
+}
+
+.reg-btn {
+  border-radius: 30px;
+  border: 1px solid #fff;
+  padding: 10px 30px;
+  color: #fff;
+}
+.reg-btn:hover {
+  background-color: #fff;
+  color: #3f2b96;
+}
+.alredy-login {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0;
+  color: #fff;
+}
+.alredy-login a {
+  text-transform: uppercase;
+  color: #d8a3e5;
+  text-decoration: none;
+}
+
+.register-bg label {
+  color: #fff;
+}

@@ -1,0 +1,52 @@
+.login-container {
+  height: 100vh;
+  background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+  overflow-x: hidden;
+  padding: 30px 0 0;
+}
+
+.login-container h1 {
+  letter-spacing: 5px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 900;
+  margin: 0 0 20px;
+}
+.login-container label {
+  color: #fff;
+}
+.login-main {
+  display: flex;
+  justify-content: center;
+}
+.login-btn,
+.login-ggl-btn {
+  padding: 10px 25px;
+  border: 1px solid #fff;
+  border-radius: 25px;
+  color: #fff;
+}
+.btns-seperator {
+  color: #fff;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 14px;
+}
+.login-btn:hover,
+.login-ggl-btn:hover {
+  color: #355c7d;
+  background-color: #fff;
+}
+
+.for-reg {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0;
+  color: #fff;
+}
+.for-reg a {
+  text-transform: uppercase;
+  color: #2cd78d;
+  text-decoration: none;
+}

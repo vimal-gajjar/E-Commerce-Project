@@ -1,0 +1,17 @@
+.btns-main {
+  border: 1px solid #000;
+  display: inline-block;
+}
+.cart-btn {
+  padding: 0 5px;
+  border: 0;
+}
+.cart-qty {
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  background-color: transparent;
+  width: 40px;
+  text-align: center;
+}
