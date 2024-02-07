@@ -14,7 +14,6 @@
     "firebase": "^10.7.1",
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",
-    "react-alert": "^7.0.3",
     "react-country-region-selector": "^3.6.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
