@@ -19,7 +19,7 @@ const ProductItem = ({ product }) => {
   };
   return (
     <>
-      <div className="col-3 mb-3">
+      <div className="col-md-3 mb-3">
         <div className="card">
           <Link to={`/productdetail/${product.id}`}>
             <img

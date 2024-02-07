@@ -38,7 +38,7 @@ const ListProducts = ({ products }) => {
       {products.length == 0 && <h1>No product found</h1>}
       {IsLoading && <Loader />}
       <div className="row">
-        <div className="col-2">
+        <div className="col-md-2">
           <h3>Filters</h3>
           <hr />
           <div className="mb-3">
@@ -71,7 +71,7 @@ const ListProducts = ({ products }) => {
             </div>
           </div>
         </div>
-        <div className="col-10">
+        <div className="col-md-10">
           <div className="row">
             {products.map((product, i) => {
               return <ProductItem key={product.id} product={product} />;
