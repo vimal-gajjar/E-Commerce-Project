@@ -4,12 +4,15 @@ import { add_to_cart } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { PiCurrencyInrBold } from "react-icons/pi";
+import { GoPlus } from "react-icons/go";
+import "../style/Product.css";
 
 const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   let handleCart = () => {
     if (product.stock > 0) {
       dispatch(add_to_cart(product));
+      toast.success("Product Added To Cart");
     } else {
       toast.info(`${product.name} is out of stock`);
     }
@@ -30,24 +33,18 @@ const ProductItem = ({ product }) => {
           <div className="card-body">
             <h4 className="card-title">{product.name}</h4>
             <p className="card-text">
-              Stock: {product.stock}
-              <br />
-              Price: <PiCurrencyInrBold /> {product.price}
+              <strong> Price:</strong> <PiCurrencyInrBold /> {product.price}
             </p>
 
-            <button
-              type="button"
-              className="btn btn-primary me-2"
-              onClick={handleCart}
-            >
-              Add To Cart
+            <button type="button" className="btn add-btn" onClick={handleCart}>
+              Add <GoPlus />
             </button>
-            <Link
+            {/* <Link
               to={`/productdetail/${product.id}`}
               className="btn btn-success"
             >
               View
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

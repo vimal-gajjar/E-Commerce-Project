@@ -31,7 +31,7 @@ const ViewProducts = () => {
   };
   return (
     <div className="container-fluid shadow">
-      <h1>View Products</h1>
+      <h1>All Products</h1>
       <hr />
       <div className="table-responsive">
         <table className="table table-striped table-bordered">

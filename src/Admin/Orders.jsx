@@ -38,6 +38,11 @@ const Orders = () => {
             </tr>
           </thead>
           <tbody>
+            {allorders.length == 0 && (
+              <tr>
+                <td colSpan={7}>No Orders Found</td>
+              </tr>
+            )}
             {allorders.map((order, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>

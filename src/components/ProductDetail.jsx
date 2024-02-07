@@ -53,7 +53,9 @@ const ProductDetail = () => {
         </div>
         <div className="col-6">
           <h2>{product.name}</h2>
-          <h4 className="mb-4"><PiCurrencyInrBold /> {product.price}.00</h4>
+          <h4 className="mb-4">
+            <PiCurrencyInrBold /> {product.price}.00
+          </h4>
           <p>Brand: {product.brand}</p>
 
           {product.stock > 0 ? (
@@ -67,11 +69,12 @@ const ProductDetail = () => {
           )}
 
           {product.stock > 0 && <p>Availabel: {product.stock}</p>}
+          
           <p className="m-0">Description:</p>
           <p>{product.description}</p>
 
-          <p className="mb-1">Ratings</p>
-          <RatingStars />
+          {/* <p className="mb-1">Ratings</p>
+          <RatingStars /> */}
 
           {cartProductIndex == -1 ? (
             <button
@@ -89,13 +92,21 @@ const ProductDetail = () => {
             </button>
           ) : (
             <div className="btns-main">
-              <button className="cart-btn" onClick={() => dispatch(decrease(cartProduct))}>-</button>
+              <button
+                className="cart-btn"
+                onClick={() => dispatch(decrease(cartProduct))}
+              >
+                -
+              </button>
               <input
                 type="text"
                 value={cartProduct.cartQty}
                 className="cart-qty"
               />
-              <button className="cart-btn" onClick={() => dispatch(add_to_cart(cartProduct))}>
+              <button
+                className="cart-btn"
+                onClick={() => dispatch(add_to_cart(cartProduct))}
+              >
                 +
               </button>
             </div>

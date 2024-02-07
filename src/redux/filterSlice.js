@@ -6,10 +6,14 @@ const filterSlice = createSlice({
   reducers: {
     filter_by_search(state, action) {
       const { products, search } = action.payload;
-      const filterProduct = products.filter((item) =>
-        item.name.toLowerCase().includes(search)
-      );
-      state.filters = filterProduct;
+      if (search !== "") {
+        const filterProduct = products.filter((item) =>
+          item.name.toLowerCase().includes(search)
+        );
+        state.filters = filterProduct;
+      } else {
+        state.filters = [];
+      }
     },
 
     filter_by_category(state, action) {
@@ -26,7 +30,7 @@ const filterSlice = createSlice({
         const productPrice = parseInt(product.price, 10);
         return productPrice <= parseInt(price, 10);
       });
-     state.filters=filterProduct 
+      state.filters = filterProduct;
     },
   },
 });

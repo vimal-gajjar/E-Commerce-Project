@@ -1,0 +1,14 @@
+
+.card .card-body .add-btn {
+  padding: 5px 10px;
+  background-color: #40a2d8;
+  color: #fff;
+  width: 100%;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+.card:hover .card-body .add-btn {
+  color: #40a2d8;
+  background-color: #fff;
+  border: 1px solid #40a2d8;
+}

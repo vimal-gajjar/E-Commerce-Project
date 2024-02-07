@@ -15,6 +15,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { selectIsLoggedIn } from "../redux/authSlice";
 import EmptyCart from "../assets/empty-cart-3613108-3020773.webp";
 import { PiCurrencyInrBold } from "react-icons/pi";
+import Lottie from "lottie-react";
+import animationData from "../assets/empty-cart-animation.json";
 
 const Cart = () => {
   const cartItem = useSelector(selectCartItems);
@@ -40,8 +42,12 @@ const Cart = () => {
     <div className="container mt-5 p-4">
       {cartItem.length == 0 ? (
         <>
-          <div className="img-fluid text-center">
-            <img src={EmptyCart} alt="Empty Cart Image" />
+          <div
+            className="img-fluid text-center"
+            style={{ width: "40%", margin: "0 auto" }}
+          >
+            {/* <img src={EmptyCart} alt="Empty Cart Image" /> */}
+            <Lottie animationData={animationData} />
             <h1 className="mb-4 newH1">Your Cart is Empty</h1>
             <Link type="button" className="btn btn-info" to="/">
               Shop Now

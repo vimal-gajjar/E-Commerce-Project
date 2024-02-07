@@ -12,17 +12,25 @@ import { auth, database } from "../firebase/config";
 import { toast } from "react-toastify";
 import { doc, getDoc } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
-import { loginuser, logoutuser, selectUserName } from "../redux/authSlice";
+import {
+  loginuser,
+  logoutuser,
+  selectUserName,
+  selectUserRole,
+} from "../redux/authSlice";
 import { ShowOnlogin, ShowOnlogout } from "../components/Wrappers";
 import { selectCartItems } from "../redux/cartSlice";
 import { filter_by_search } from "../redux/filterSlice";
 import useFetchCollection from "../customhooks/useFetchCollection";
 import { STORE_PRODUCTS, selectproducts } from "../redux/productSlice";
+import "../style/Header.css";
+import logo from "../assets/quickpick-logo.png";
 
 const Header = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
   let username = useSelector(selectUserName);
+  let userrole = useSelector(selectUserRole);
   let cartItems = useSelector(selectCartItems);
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
@@ -70,12 +78,14 @@ const Header = () => {
   useEffect(() => {
     dispatch(filter_by_search({ products, search }));
   }, [search]);
+
+  document.title = "First React Project";
   return (
-    <div>
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+    <>
+      <nav className="navbar navbar-expand-sm">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Navbar
+          <a className="navbar-brand" href="javascript:void(0)">
+            QuickPick
           </a>
           <button
             className="navbar-toggler d-lg-none"
@@ -91,71 +101,58 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" to="/" aria-current="page">
+                <Link className="nav-link" to="/" aria-current="page">
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  to="/products"
-                  aria-current="page"
-                >
+                <Link className="nav-link" to="/products" aria-current="page">
                   Products
                 </Link>
               </li>
+              {userrole == "admin" && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/admin">
+                    Admin Panel
+                  </Link>
+                </li>
+              )}
             </ul>
 
             <ul className="navbar-nav mt-2 mt-lg-0">
               <ShowOnlogout>
                 <li className="nav-item">
-                  <Link
-                    className="nav-link active"
-                    to="/login"
-                    aria-current="page"
-                  >
+                  <Link className="nav-link" to="/login" aria-current="page">
                     <FaLock /> Login
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link
-                    className="nav-link active"
-                    to="/register"
-                    aria-current="page"
-                  >
+                  <Link className="nav-link" to="/register" aria-current="page">
                     <FaPenNib /> Register
                   </Link>
                 </li>
               </ShowOnlogout>
 
-              <form className="d-flex" role="search">
-                <div className="input-group">
+              <form className="searchbar" role="search">
+                <div className="">
                   <input
-                    className="form-control"
+                    className=""
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                   />
-                  <button
-                    className="btn btn-success"
-                    type="submit"
-                    onClick={handleSearch}
-                  >
+                  <button className="btn" type="submit" onClick={handleSearch}>
                     <FaSearch />
                   </button>
                 </div>
               </form>
-              <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  to="/cart"
-                  aria-current="page"
-                >
+              <li className="nav-item cart">
+                <Link className="nav-link" to="/cart" aria-current="page">
                   <FaShoppingCart size={25} />
                   <span
-                    className="badge rounded-pill text-bg-warning"
+                    className="badge rounded-pill"
                     style={{ position: "relative", top: "-10px" }}
                   >
                     {cartItems.length}
@@ -164,22 +161,18 @@ const Header = () => {
               </li>
               <ShowOnlogin>
                 <li className="nav-item">
-                  <Link
-                    className="nav-link active"
-                    to="/myorders"
-                    aria-current="page"
-                  >
+                  <Link className="nav-link" to="/myorders" aria-current="page">
                     My orders
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link active" href="#" aria-current="page">
+                {/* <li className="nav-item">
+                  <a className="nav-link" href="#" aria-current="page">
                     Welcome {username}
                   </a>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <button
-                    className="nav-link active"
+                    className="nav-link"
                     aria-current="page"
                     onClick={handleLogout}
                   >
@@ -191,7 +184,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 

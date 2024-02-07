@@ -11,22 +11,22 @@ const Slider = () => {
     dispatch(Add_slider(data));
   }, [data]);
 
-  let imgstyle = { width: "100%", height: "700px" };
+  let imgstyle = { width: "100%", height: "700px",objectFit:'cover' };
 
   return (
-    <div>
+    <>
       <div
         id="carouselExampleControls"
         className="carousel slide"
         data-bs-ride="carousel"
         data-bs-interval="2000"
-        data-bs-pause="false"
+        data-bs-pause="true"
       >
         <div className="carousel-inner">
           {slider.map((slide, i) => (
             <div className={`carousel-item ${i == 0 ? "active" : ""}`} key={i}>
               <img
-                className="d-block w-100"
+                className="d-block"
                 src={slide.imageURL}
                 alt="First slide"
                 style={imgstyle}
@@ -39,7 +39,7 @@ const Slider = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

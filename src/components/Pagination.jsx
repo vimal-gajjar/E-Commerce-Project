@@ -1,4 +1,5 @@
 import React from "react";
+import "../style/Pagination.css";
 
 const Pagination = ({
   totalPosts,
@@ -11,14 +12,22 @@ const Pagination = ({
     page.push(i);
   }
 
+  let paginationBtn = {
+    padding: "5px 15px",
+    borderRadius: "20px",
+    fontSize: "16px",
+    color: "#40a2d8",
+    border: "1px solid #40a2d8",
+  };
   const paginatoinStyle = { marginLeft: "auto" };
+
   return (
     <div className="col-10" style={paginatoinStyle}>
       <ul className="pagination justify-content-center">
         {page.map((pageNum, index) => (
           <li
             key={index}
-            className={`page-item page-link btn me-1 ${
+            className={`page-item pagination-btn btn me-2 ${
               pageNum == currentPage ? "active" : ""
             }`}
             aria-current="page"

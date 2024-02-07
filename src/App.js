@@ -29,6 +29,7 @@ import Orders from "./Admin/Orders";
 import OrderDetails from "./components/OrderDetails";
 import MyOrderDetails from "./components/MyOrderDetails";
 import "./App.css";
+import Footer from "./pages/Footer";
 
 function App() {
   return (
@@ -89,6 +90,7 @@ function App() {
           ></Route>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
+        <Footer />
       </Provider>
     </>
   );
