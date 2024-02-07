@@ -84,9 +84,9 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-sm">
         <div className="container-fluid">
-          <a className="navbar-brand" href="javascript:void(0)">
+          <Link className="navbar-brand" to='/'>
             QuickPick
-          </a>
+          </Link>
           <button
             className="navbar-toggler d-lg-none"
             type="button"
@@ -100,11 +100,11 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/" aria-current="page">
                   Home
                 </Link>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/products" aria-current="page">
                   Products

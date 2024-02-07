@@ -11,7 +11,7 @@
   color: #40a2d8 !important;
   opacity: 0.9;
 }
-.navbar-brand {
+.navbar .navbar-brand {
   color: #40a2d8;
 }
 .navbar .navbar-brand:hover {
