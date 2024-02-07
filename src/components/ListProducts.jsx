@@ -14,7 +14,7 @@ const ListProducts = ({ products }) => {
   const [category, setCategory] = useState("");
   const allProducts = useSelector(selectproducts);
 
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(1000);
 
   useEffect(() => {
     dispatch(filter_by_category({ allProducts, category }));
@@ -42,9 +42,7 @@ const ListProducts = ({ products }) => {
           <h3>Filters</h3>
           <hr />
           <div className="mb-3">
-            <label className="form-label">
-              Categories
-            </label>
+            <label className="form-label">Categories</label>
             <select
               className="form-select"
               name="category"
@@ -57,9 +55,7 @@ const ListProducts = ({ products }) => {
             </select>
 
             <div className="mb-3 mt-2">
-              <label className="form-label">
-                Filter by Price
-              </label>
+              <label className="form-label">Filter by Price</label>
               <input
                 type="range"
                 className="form-range"

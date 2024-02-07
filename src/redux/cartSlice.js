@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import '../style/cart.css'
+import "../style/cart.css";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -42,9 +42,7 @@ const cartSlice = createSlice({
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     remove_from_cart(state, action) {
-      if (window.confirm("Are you sure ??")) {
-        state.cartItems.splice(action.payload, 1);
-      }
+      state.cartItems.splice(action.payload, 1);
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
     empty_cart(state, action) {

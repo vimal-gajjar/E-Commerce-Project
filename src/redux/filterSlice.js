@@ -27,10 +27,14 @@ const filterSlice = createSlice({
     filter_by_price(state, action) {
       const { allProducts, price } = action.payload;
       const filterProduct = allProducts.filter((product) => {
-        const productPrice = parseInt(product.price, 10);
-        return productPrice <= parseInt(price, 10);
+        const productPrice = Number(product.price, 0);
+        return productPrice <= Number(price, 0);
       });
-      state.filters = filterProduct;
+      if (filterProduct.length != 0) {
+        state.filters = filterProduct;
+      } else {
+        state.filters = [];
+      }
     },
   },
 });
