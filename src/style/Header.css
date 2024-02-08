@@ -17,13 +17,11 @@
 .navbar .navbar-brand:hover {
   color: #40a2d8;
 }
-.navbar .navbar-collapse {
-  justify-content: space-between;
-}
 .navbar .searchbar {
   display: flex;
   align-items: center;
-  padding: 0px 10px;
+  justify-content: space-between;
+  padding: 5px;
   background: #fff;
   border-radius: 20px;
 }
@@ -50,4 +48,9 @@
 }
 .cart .badge {
   background-color: #40a2d8;
+}
+.navbar-toggler .navbar-toggler-icon svg {
+  color: #40a2d8;
+  width: 100%;
+  height: auto;
 }

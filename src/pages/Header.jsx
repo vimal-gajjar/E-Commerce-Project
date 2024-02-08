@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   FaArrowAltCircleLeft,
+  FaBars,
   FaLock,
   FaPenNib,
   FaSearch,
@@ -84,7 +85,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-sm">
         <div className="container-fluid">
-          <Link className="navbar-brand" to='/'>
+          <Link className="navbar-brand" to="/">
             QuickPick
           </Link>
           <button
@@ -96,7 +97,9 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon">
+              <FaBars />
+            </span>
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
@@ -134,19 +137,19 @@ const Header = () => {
               </ShowOnlogout>
 
               <form className="searchbar" role="search">
-                <div className="">
-                  <input
-                    className=""
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                  <button className="btn" type="submit" onClick={handleSearch}>
-                    <FaSearch />
-                  </button>
-                </div>
+                {/* <div> */}
+                <input
+                  className=""
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <button className="btn" type="submit" onClick={handleSearch}>
+                  <FaSearch />
+                </button>
+                {/* </div> */}
               </form>
               <li className="nav-item cart">
                 <Link className="nav-link" to="/cart" aria-current="page">
