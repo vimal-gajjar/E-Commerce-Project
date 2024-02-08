@@ -38,6 +38,8 @@ const Cart = () => {
       navigate("/login");
     }
   };
+
+  let imgStyle={width:'40%',margin:'0 auto 30px'}
   return (
     <div className="container mt-5">
       <div className="row">
@@ -45,7 +47,7 @@ const Cart = () => {
           <>
             <div
               className="img-fluid text-center"
-              style={{ width: "40%", margin: "0 auto" }}
+              style={imgStyle}
             >
               {/* <img src={EmptyCart} alt="Empty Cart Image" /> */}
               <Lottie animationData={animationData} />

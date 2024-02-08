@@ -19,10 +19,9 @@ const Pagination = ({
     color: "#40a2d8",
     border: "1px solid #40a2d8",
   };
-  const paginatoinStyle = { marginLeft: "auto" };
 
   return (
-    <div className="col-10" style={paginatoinStyle}>
+    <>
       <ul className="pagination justify-content-center">
         {page.map((pageNum, index) => (
           <li
@@ -37,7 +36,7 @@ const Pagination = ({
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

@@ -1,11 +1,12 @@
 import React from "react";
-import AdminGif from "../assets/Creative Team.gif";
+import Lottie from "lottie-react";
+import animationData from "../assets/team-animation.json";
 
 const AdminHome = () => {
   return (
     <div>
-      <div className="text-center">
-        <img src={AdminGif} alt="" width={1000} style={{ marginTop: "-12%" }} />
+      <div className="text-center admin-home">
+        <Lottie animationData={animationData} />
       </div>
     </div>
   );

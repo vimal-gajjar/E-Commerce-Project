@@ -103,11 +103,6 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
-              {/* <li className="nav-item">
-                <Link className="nav-link" to="/" aria-current="page">
-                  Home
-                </Link>
-              </li> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/products" aria-current="page">
                   Products
@@ -154,12 +149,7 @@ const Header = () => {
               <li className="nav-item cart">
                 <Link className="nav-link" to="/cart" aria-current="page">
                   <FaShoppingCart size={25} />
-                  <span
-                    className="badge rounded-pill"
-                    style={{ position: "relative", top: "-10px" }}
-                  >
-                    {cartItems.length}
-                  </span>
+                  <span className="badge rounded-pill">{cartItems.length}</span>
                 </Link>
               </li>
               <ShowOnlogin>

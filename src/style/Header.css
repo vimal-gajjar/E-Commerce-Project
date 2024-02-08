@@ -48,6 +48,8 @@
 }
 .cart .badge {
   background-color: #40a2d8;
+  position: relative;
+  top: -10px;
 }
 .navbar-toggler .navbar-toggler-icon svg {
   color: #40a2d8;

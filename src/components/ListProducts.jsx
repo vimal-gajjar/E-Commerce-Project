@@ -38,7 +38,7 @@ const ListProducts = ({ products }) => {
       {products.length == 0 && <h1>No product found</h1>}
       {IsLoading && <Loader />}
       <div className="row">
-        <div className="col-md-2">
+        {/* <div className="col-md-2">
           <h3>Filters</h3>
           <hr />
           <div className="mb-3">
@@ -70,14 +70,10 @@ const ListProducts = ({ products }) => {
               <p>Rs.{price}</p>
             </div>
           </div>
-        </div>
-        <div className="col-md-10">
-          <div className="row">
-            {products.map((product, i) => {
-              return <ProductItem key={product.id} product={product} />;
-            })}
-          </div>
-        </div>
+        </div> */}
+        {products.map((product, i) => {
+          return <ProductItem key={product.id} product={product} />;
+        })}
       </div>
     </>
   );

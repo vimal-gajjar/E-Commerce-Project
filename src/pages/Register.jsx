@@ -47,7 +47,7 @@ const Register = () => {
       {IsLoading && <Loader />}
       <h1 className="newH1 text-center">Register Page</h1>
       <div className="row justify-content-center">
-        <div className="col-4 form-box">
+        <div className="col-md-4 form-box">
           <form onSubmit={handlesubmit}>
             <div className="mb-3">
               <label className="form-label">Username</label>

@@ -2,7 +2,7 @@
   height: 100vh;
   background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
   overflow-x: hidden;
-  padding: 30px 0 0;
+  padding: 30px 15px 0;
 }
 
 .login-container h1 {

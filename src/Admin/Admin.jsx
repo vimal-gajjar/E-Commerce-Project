@@ -12,8 +12,8 @@ const Admin = () => {
     <div>
       <h1 className="mb-4">Admin Dashboard</h1>
       <hr />
-      <div className="row me-auto">
-        <div className="col-2">
+      <div className="row mb-5 me-auto">
+        <div className="col-md-2">
           <ul className="nav nav-pills flex-column mb-auto text-center">
             <li className="nav-item ">
               <Link
@@ -147,7 +147,7 @@ const Admin = () => {
             </li>
           </ul>
         </div>
-        <div className="col-10">
+        <div className="col-md-10">
           <Outlet />
         </div>
       </div>

@@ -77,7 +77,7 @@ const Login = () => {
       {IsLoading && <Loader />}
       <h1 className="newH1 text-center">Login Page</h1>
       <div className="row justify-content-center">
-        <div className="col-3">
+        <div className="col-md-3">
           <form onSubmit={handlesubmit} noValidate>
             <div className="mb-4">
               <label className="form-label">Email ID</label>
