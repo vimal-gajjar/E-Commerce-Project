@@ -45,9 +45,9 @@ const Register = () => {
   return (
     <div className="register-bg">
       {IsLoading && <Loader />}
-      <h1 className="newH1 text-center">Register Page</h1>
-      <div className="row justify-content-center">
-        <div className="col-md-4 form-box">
+      <div className="row ">
+        <div className="col-md-4 form-box register">
+          <h1 className="newH1 text-center">Register Page</h1>
           <form onSubmit={handlesubmit}>
             <div className="mb-3">
               <label className="form-label">Username</label>

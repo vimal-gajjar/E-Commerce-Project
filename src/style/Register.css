@@ -1,10 +1,14 @@
 .register-bg {
-  height: 100vh;
-  background: linear-gradient(to right, #642b73, #c6426e);
-  overflow-x: hidden;
-  padding: 30px 15 0;
-}
+  background: url("../assets//register-image.jpg");
+  background-size: cover;
 
+  overflow-x: hidden;
+  padding: 50px 15px;
+}
+.register {
+  margin: 0 auto;
+  backdrop-filter: blur(20px);
+}
 .register-bg h1 {
   letter-spacing: 5px;
   font-size: 50px;

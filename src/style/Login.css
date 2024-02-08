@@ -1,10 +1,16 @@
 .login-container {
-  height: 100vh;
-  background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+  background: url("../assets/abstract-textured-backgound.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow-x: hidden;
-  padding: 30px 15px 0;
+  padding: 50px 15px;
 }
-
+.login {
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  margin: 0 auto;
+}
 .login-container h1 {
   letter-spacing: 5px;
   font-size: 50px;
