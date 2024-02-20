@@ -7,6 +7,9 @@ import {
   filter_by_category,
   filter_by_price,
   selectFilter,
+  selectcategory,
+  selectprice,
+  selectsearchvalue,
 } from "../redux/filterSlice";
 import Pagination from "./Pagination";
 import { selectCategories, store_categories } from "../redux/categorySlice";
@@ -24,23 +27,28 @@ const Products = () => {
     dispatch(STORE_PRODUCTS(data));
   }, [data]);
 
+  // Pagination products
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
   const currentProducts = product.slice(firstPostIndex, lastPostIndex);
-  // const { data, IsLoading } = useFetchCollection("categories");
+
+  // Category from redux
+  const category1 = useFetchCollection("categories");
+  useEffect(() => {
+    dispatch(store_categories(category1.data));
+  }, [category1.data]);
   const categories = useSelector(selectCategories);
   const [category, setCategory] = useState("");
   const allProducts = useSelector(selectproducts);
 
   const [price, setPrice] = useState(1000);
+  const searchvalue = useSelector(selectsearchvalue);
+  const pricevalue = useSelector(selectprice);
+  const categoryvalue = useSelector(selectcategory);
 
   useEffect(() => {
     dispatch(filter_by_category({ allProducts, category }));
   }, [category]);
-
-  // useEffect(() => {
-  //   dispatch(store_categories(data));
-  // }, [data]);
 
   useEffect(() => {
     dispatch(filter_by_price({ allProducts, price }));
@@ -50,10 +58,9 @@ const Products = () => {
     setCategory(e.target.value);
     dispatch(filter_by_category({ allProducts, category }));
   };
-  // let editproduct = [];
   return (
     <>
-      <div className="container mt-3 mb-3">
+      <div className="container mt-5 mb-5">
         <h1 className="newH1">Products</h1>
         <hr />
         <div className="row">
@@ -91,7 +98,39 @@ const Products = () => {
             </div>
           </div>
           <div className="col-md-10">
-            {filterdProduct.length == 0 ? (
+            {/* {searchvalue == "" ? (
+              <>
+                <ListProducts products={currentProducts} />
+                {filterdProduct.length > postPerPage ?? (
+                  <Pagination
+                    totalPosts={product.length}
+                    postPerPage={postPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                  />
+                )}
+              </>
+            ) : (
+              <>
+                {filterdProduct.length == 0 ? (
+                  <h1>No Product Found</h1>
+                ) : (
+                  <>
+                    <ListProducts products={filterdProduct} />
+                    {filterdProduct.length > postPerPage ?? (
+                      <Pagination
+                        totalPosts={filterdProduct.length}
+                        postPerPage={postPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                      />
+                    )}
+                  </>
+                )}
+              </>
+            )} */}
+
+            {/* {filterdProduct.length == 0 ? (
               <>
                 <ListProducts products={currentProducts} />
                 <Pagination
@@ -112,6 +151,38 @@ const Products = () => {
                     currentPage={currentPage}
                   />
                 )}
+              </>
+            )} */}
+
+            {searchvalue != "" || pricevalue != 0 || categoryvalue != "" ? (
+              <>
+                {filterdProduct.length == 0 ? (
+                  <h1>No Product Found</h1>
+                ) : (
+                  <>
+                    <ListProducts products={filterdProduct} />
+                    {filterdProduct.length > postPerPage ?? (
+                      <Pagination
+                        totalPosts={filterdProduct.length}
+                        postPerPage={postPerPage}
+                        setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                      />
+                    )}
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <ListProducts products={currentProducts} />
+                {/* {filterdProduct.length > postPerPage ?? ( */}
+                  <Pagination
+                    totalPosts={allProducts.length}
+                    postPerPage={postPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                  />
+                {/* )} */}
               </>
             )}
           </div>

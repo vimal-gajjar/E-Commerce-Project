@@ -30,6 +30,7 @@ import OrderDetails from "./components/OrderDetails";
 import MyOrderDetails from "./components/MyOrderDetails";
 import "./App.css";
 import Footer from "./pages/Footer";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -84,6 +85,7 @@ function App() {
           <Route path="/productdetail/:id" element={<ProductDetail />}></Route>
           <Route path="/checkoutsuccess" element={<CheckoutSuccess />}></Route>
           <Route path="/myorders" element={<MyOrder />}></Route>
+          <Route path="/about" element={<About />}></Route>
           <Route
             path="/myorder-details/:id"
             element={<MyOrderDetails />}

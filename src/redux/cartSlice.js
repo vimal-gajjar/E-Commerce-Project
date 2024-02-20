@@ -20,16 +20,24 @@ const cartSlice = createSlice({
       );
       if (itemIndex == -1) {
         state.cartItems.push({ ...action.payload, cartQty: 1 });
+        toast.success("Product Added To Cart");
       } else {
-        if (state.cartItems[itemIndex].cartQty < action.payload.stock) {
-          state.cartItems[itemIndex].cartQty += 1;
-        } else {
-          toast.info(`only ${action.payload.stock} stock is available`);
-        }
+        toast.info(`${action.payload.name} already added to cart`);
       }
-      window.scrollTo(0, 0);
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
+    increase(state, action) {
+      let itemIndex = state.cartItems.findIndex(
+        (item) => item.id == action.payload.id
+      );
+      if (state.cartItems[itemIndex].cartQty < action.payload.stock) {
+        state.cartItems[itemIndex].cartQty += 1;
+      } else {
+        toast.info(`only ${action.payload.stock} stock is available`);
+      }
+    },
+
     decrease(state, action) {
       let itemIndex = state.cartItems.findIndex(
         (item) => item.id == action.payload.id
@@ -41,16 +49,19 @@ const cartSlice = createSlice({
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
     remove_from_cart(state, action) {
       state.cartItems.splice(action.payload, 1);
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
     empty_cart(state, action) {
       state.cartItems = [];
       state.totalAmount = 0;
       localStorage.removeItem("cartItems");
       localStorage.removeItem("total");
     },
+
     calculate_total(state, action) {
       let total = state.cartItems.reduce((prev, item) => {
         return (prev += item.price * item.cartQty);
@@ -58,6 +69,7 @@ const cartSlice = createSlice({
       state.totalAmount = total;
       localStorage.setItem("total", state.totalAmount);
     },
+
     saveURL(state, action) {
       state.previousURL = action.payload;
     },
@@ -67,6 +79,7 @@ const cartSlice = createSlice({
 export default cartSlice.reducer;
 export const {
   add_to_cart,
+  increase,
   decrease,
   remove_from_cart,
   empty_cart,

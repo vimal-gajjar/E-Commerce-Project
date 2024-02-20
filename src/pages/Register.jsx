@@ -46,7 +46,7 @@ const Register = () => {
     <div className="register-bg">
       {IsLoading && <Loader />}
       <div className="row ">
-        <div className="col-md-4 form-box register">
+        <div className="col-md-3 form-box register">
           <h1 className="newH1 text-center">Register Page</h1>
           <form onSubmit={handlesubmit}>
             <div className="mb-3">

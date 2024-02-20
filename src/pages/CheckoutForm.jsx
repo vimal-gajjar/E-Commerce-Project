@@ -89,7 +89,6 @@ let CheckoutForm = () => {
       addDoc(docRef, orderConfig);
       dispatch(empty_cart());
 
-
       // For updating the stock based on quantity
       filterPro.forEach(async (item, i) => {
         const proId = item.id;
@@ -163,39 +162,45 @@ let CheckoutForm = () => {
   };
 
   return (
-    <div className="row mt-5 shadow p-2">
+    <div className="row mt-5 mb-5 p-2">
       <div className="col-6">
         <CheckoutSummary />
       </div>
       <div className="col-6">
-        <h1 className="newH1">Stripe Checkout</h1>
-        <hr />
-        <form id="payment-form" onSubmit={handleSubmit}>
-          <PaymentElement
-            id="payment-element"
-            options={paymentElementOptions}
-          />
-          <div class="d-grid gap-2 mt-3">
-            <button
-              disabled={isLoading || !stripe || !elements}
-              id="submit"
-              className="btn btn-primary"
-            >
-              <span id="button-text">
-                {isLoading ? (
-                  <div class="spinner-border text-warning" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                ) : (
-                  "Pay now"
-                )}
-              </span>
-            </button>
+        <div className="card">
+          <div className="card-header bg-info text-dark">
+            <h4 className="newH1">Stripe Checkout</h4>
           </div>
+          {/* <hr /> */}
+          <div className="card-body">
+            <form id="payment-form" onSubmit={handleSubmit}>
+              <PaymentElement
+                id="payment-element"
+                options={paymentElementOptions}
+              />
+              <div class="d-grid gap-2 mt-3">
+                <button
+                  disabled={isLoading || !stripe || !elements}
+                  id="submit"
+                  className="btn btn-primary"
+                >
+                  <span id="button-text">
+                    {isLoading ? (
+                      <div class="spinner-border text-warning" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                    ) : (
+                      "Pay now"
+                    )}
+                  </span>
+                </button>
+              </div>
 
-          {/* Show any error or success messages */}
-          {message && <div id="payment-message">{message}</div>}
-        </form>
+              {/* Show any error or success messages */}
+              {message && <div id="payment-message">{message}</div>}
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

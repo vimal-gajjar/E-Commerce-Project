@@ -6,6 +6,7 @@ import {
   calculate_total,
   decrease,
   empty_cart,
+  increase,
   remove_from_cart,
   saveURL,
   selectCartItems,
@@ -39,16 +40,13 @@ const Cart = () => {
     }
   };
 
-  let imgStyle={width:'40%',margin:'0 auto 30px'}
+  let imgStyle = { width: "40%", margin: "0 auto 30px" };
   return (
-    <div className="container mt-5">
-      <div className="row">
+    <div className="container">
+      <div className="row" style={{ padding: "120px 0" }}>
         {cartItem.length == 0 ? (
           <>
-            <div
-              className="img-fluid text-center"
-              style={imgStyle}
-            >
+            <div className="img-fluid text-center" style={imgStyle}>
               {/* <img src={EmptyCart} alt="Empty Cart Image" /> */}
               <Lottie animationData={animationData} />
               <h1 className="mb-4 newH1">Your Cart is Empty</h1>
@@ -188,7 +186,7 @@ const Cart = () => {
                       />
                       <button
                         className="cart-btn"
-                        onClick={() => dispatch(add_to_cart(c))}
+                        onClick={() => dispatch(increase(c))}
                       >
                         +
                       </button>

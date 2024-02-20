@@ -12,7 +12,6 @@ const ProductItem = ({ product }) => {
   let handleCart = () => {
     if (product.stock > 0) {
       dispatch(add_to_cart(product));
-      toast.success("Product Added To Cart");
     } else {
       toast.info(`${product.name} is out of stock`);
     }

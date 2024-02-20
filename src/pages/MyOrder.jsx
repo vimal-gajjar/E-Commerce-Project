@@ -17,7 +17,7 @@ const MyOrder = () => {
   const myorders = allorders.filter((item) => item.userId == userID);
 
   return (
-    <div className="container mt-4">
+    <div className="container my-5">
       {allorders.length == 0 ? (
         <>
           <div className="img-fluid text-center">

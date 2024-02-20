@@ -9,7 +9,7 @@ const CheckoutSummary = () => {
     <div>
       <div class="card">
         <div class="card-header bg-warning text-dark">
-          <h4>Order Summary</h4>
+          <h4 className="newH1">Order Summary</h4>
         </div>
         <div class="card-body">
           {cartItems.map((cart, i) => (

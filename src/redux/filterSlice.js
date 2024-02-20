@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const filterSlice = createSlice({
   name: "filter",
-  initialState: { filters: [] },
+  initialState: { filters: [], searchvalue: "", price: 0, categoryval: "" },
   reducers: {
     filter_by_search(state, action) {
       const { products, search } = action.payload;
@@ -11,29 +11,32 @@ const filterSlice = createSlice({
           item.name.toLowerCase().includes(search)
         );
         state.filters = filterProduct;
-      } else {
-        state.filters = [];
       }
+      state.searchvalue = search;
     },
 
     filter_by_category(state, action) {
       const { allProducts, category } = action.payload;
-      const filterProduct = allProducts.filter(
-        (item) => item.category == category
-      );
-      state.filters = filterProduct;
+      if (category != "") {
+        const filterProduct = allProducts.filter(
+          (item) => item.category == category
+        );
+        state.filters = filterProduct;
+      }
+      state.categoryval = category;
     },
 
     filter_by_price(state, action) {
       const { allProducts, price } = action.payload;
       const filterProduct = allProducts.filter((product) => {
-        const productPrice = Number(product.price);
-        return productPrice <= Number(price);
+        return Number(product.price) <= Number(price);
       });
       if (filterProduct.length != 0) {
         state.filters = filterProduct;
+        state.price = price;
       } else {
         state.filters = [];
+        state.price = 0;
       }
     },
   },
@@ -43,3 +46,6 @@ export default filterSlice.reducer;
 export const { filter_by_search, filter_by_category, filter_by_price } =
   filterSlice.actions;
 export const selectFilter = (state) => state.filter.filters;
+export const selectsearchvalue = (state) => state.filter.searchvalue;
+export const selectprice = (state) => state.filter.price;
+export const selectcategory = (state) => state.filter.categoryval;

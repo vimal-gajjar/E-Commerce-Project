@@ -1,36 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectproducts } from "../redux/productSlice";
+import { STORE_PRODUCTS, selectproducts } from "../redux/productSlice";
 import { useParams } from "react-router-dom";
-import { add_to_cart, decrease, selectCartItems } from "../redux/cartSlice";
+import {
+  add_to_cart,
+  decrease,
+  increase,
+  selectCartItems,
+} from "../redux/cartSlice";
 import { FaCheck } from "react-icons/fa";
 import { GiCrossMark } from "react-icons/gi";
 import { toast } from "react-toastify";
 import ReactImageMagnify from "react-image-magnify";
-import RatingStars from "./RatingStars";
-import Loader from "../pages/Loader";
-import useFetchCollection from "../customhooks/useFetchCollection";
 import { PiCurrencyInrBold } from "react-icons/pi";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const products = useSelector(selectproducts);
 
-  const { IsLoading } = useFetchCollection("products");
-
+   const products = useSelector(selectproducts);
   const product = products.find((item) => item.id == id);
 
   const cartitems = useSelector(selectCartItems);
   const cartProduct = cartitems.find((item) => item.id == id);
   const cartProductIndex = cartitems.findIndex((item) => item.id == id);
+
   return (
     <div className="container mt-5">
-      {IsLoading && <Loader />}
       <h1 className="newH1">Product Details</h1>
       <hr />
-      <div className="row">
-        <div className="col-6">
+      <div className="row pb-5">
+        <div className="col-md-6">
           <ReactImageMagnify
             {...{
               smallImage: {
@@ -51,7 +51,7 @@ const ProductDetail = () => {
             className="img-fluid"
           /> */}
         </div>
-        <div className="col-6">
+        <div className="col-md-6">
           <h2>{product.name}</h2>
           <h4 className="mb-4">
             <PiCurrencyInrBold /> {product.price}.00
@@ -69,14 +69,11 @@ const ProductDetail = () => {
           )}
 
           {product.stock > 0 && <p>Availabel: {product.stock}</p>}
-          
+
           <p className="m-0">Description:</p>
           <p>{product.description}</p>
 
-          {/* <p className="mb-1">Ratings</p>
-          <RatingStars /> */}
-
-          {cartProductIndex == -1 ? (
+          <div className="mb-2">
             <button
               type="button"
               class="btn btn-primary"
@@ -90,7 +87,9 @@ const ProductDetail = () => {
             >
               Add to Cart
             </button>
-          ) : (
+          </div>
+
+          {cartProductIndex != -1 && (
             <div className="btns-main">
               <button
                 className="cart-btn"
@@ -105,7 +104,7 @@ const ProductDetail = () => {
               />
               <button
                 className="cart-btn"
-                onClick={() => dispatch(add_to_cart(cartProduct))}
+                onClick={() => dispatch(increase(cartProduct))}
               >
                 +
               </button>

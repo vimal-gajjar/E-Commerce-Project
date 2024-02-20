@@ -88,19 +88,27 @@ const Header = () => {
           <Link className="navbar-brand" to="/">
             QuickPick
           </Link>
-          <button
-            className="navbar-toggler d-lg-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon">
-              <FaBars />
-            </span>
-          </button>
+          <div className="d-flex align-items-center">
+            <li className="nav-item cart cart-mobile">
+              <Link className="nav-link" to="/cart" aria-current="page">
+                <FaShoppingCart size={25} />
+                <span className="badge rounded-pill">{cartItems.length}</span>
+              </Link>
+            </li>
+            <button
+              className="navbar-toggler d-lg-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavId"
+              aria-controls="collapsibleNavId"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon">
+                <FaBars />
+              </span>
+            </button>
+          </div>
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
               <li className="nav-item">
@@ -146,7 +154,7 @@ const Header = () => {
                 </button>
                 {/* </div> */}
               </form>
-              <li className="nav-item cart">
+              <li className="nav-item cart cart-desktop">
                 <Link className="nav-link" to="/cart" aria-current="page">
                   <FaShoppingCart size={25} />
                   <span className="badge rounded-pill">{cartItems.length}</span>
