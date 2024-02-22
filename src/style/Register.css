@@ -1,9 +1,9 @@
 .register-bg {
   background: url("../assets//register-image.jpg");
   background-size: cover;
-
   overflow-x: hidden;
   padding: 50px 15px;
+  height: calc(100vh - 58px);
 }
 .register {
   margin: 0 auto;

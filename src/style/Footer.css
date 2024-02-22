@@ -59,14 +59,14 @@
   width: auto;
   cursor: pointer;
 }
-.footer .social-media li a {
-  text-decoration: none;
+.footer .social-media li {
   transition: all 0.3s ease-in-out;
   color: #fff;
 }
 .footer .social-media .wp:hover {
   color: green;
 }
+
 .footer .social-media .insta:hover {
   color: rgba(255, 0, 0, 0.492);
 }

@@ -21,6 +21,11 @@ const AddUsers = () => {
   let redirect = useNavigate();
   let users = useSelector(selectUsers);
   const UserData = users.find((item) => item.id == id);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleVisible = () => {
+    setShowPassword(!showPassword);
+  };
 
   let handleuser = (e) => {
     setuser({ ...user, [e.target.name]: e.target.value });
@@ -94,13 +99,20 @@ const AddUsers = () => {
         <div className="mb-3">
           <label className="form-label">Password</label>
           <input
-            type="password"
+            type={showPassword ? "password" : "text"}
             name="password"
             className="form-control"
             placeholder="Enter Password"
             onChange={handleuser}
             value={user.password}
           />
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={handleVisible}
+          >
+            {showPassword ? "Show" : "Hide"}
+          </button>
         </div>
         <div className="mb-3">
           <label className="form-label">Confirm Password</label>
@@ -121,9 +133,6 @@ const AddUsers = () => {
             onChange={handleuser}
             value={user.role}
           >
-            <option value="" selected disabled>
-              Select Role
-            </option>
             <option value="user">user</option>
             <option value="admin">admin</option>
           </select>

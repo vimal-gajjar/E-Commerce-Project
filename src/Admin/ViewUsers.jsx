@@ -11,20 +11,18 @@ import { useEffect } from "react";
 import { Store_users, selectUsers } from "../redux/userSlice";
 
 const ViewUsers = () => {
-  let dispatch=useDispatch()
+  let dispatch = useDispatch();
   const { data } = useFetchCollection("users");
-  let users=useSelector(selectUsers)
-  useEffect(()=>{
-    dispatch(Store_users(data))
-  },[data])
-  ;
+  let users = useSelector(selectUsers);
+
+  useEffect(() => {
+    dispatch(Store_users(data));
+  }, [data]);
+
   let handledelete = async (id) => {
-    if (window.confirm("Are you sure ??")) {
-      let docRef = doc(database, "users", id);
-      await deleteDoc(docRef);
-      toast.success("User deleted");
-      window.location.reload();
-    }
+    let docRef = doc(database, "users", id);
+    await deleteDoc(docRef);
+    toast.success("User deleted");
   };
   let table = (
     <div>

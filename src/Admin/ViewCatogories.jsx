@@ -1,4 +1,4 @@
-import {  deleteDoc, doc } from "firebase/firestore";
+import { deleteDoc, doc } from "firebase/firestore";
 import React, { useEffect } from "react";
 import { database } from "../firebase/config";
 import { FaTrashAlt } from "react-icons/fa";
@@ -9,13 +9,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCategories, store_categories } from "../redux/categorySlice";
 
 const ViewCatogories = () => {
-  const {data,IsLoading}=useFetchCollection("categories")
-  const dispatch= useDispatch()
-  useEffect(()=>{
-    dispatch(store_categories(data))
-  },[data])
-  
-  let categories=useSelector(selectCategories)
+  const { data, IsLoading } = useFetchCollection("categories");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(store_categories(data));
+  }, [data]);
+
+  let categories = useSelector(selectCategories);
   // let [category, setCategory] = useState([]);
   // useEffect(() => {
   //   getData();
@@ -32,20 +32,17 @@ const ViewCatogories = () => {
   // };
 
   let handleDelete = (id) => {
-    if (window.confirm("Are you sure ??")) {
-      try {
-        let docref=doc(database, "categories", id)
-        deleteDoc(docref);
-        toast.success("Category Deleted..!!");
-        // window.location.reload();
-      } catch (err) {
-        toast.error(err.message);
-      }
+    try {
+      let docref = doc(database, "categories", id);
+      deleteDoc(docref);
+      toast.success("Category Deleted..!!");
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 
   return (
-    <div className="shadow p-3">
+    <div className="p-3">
       <div className="table-responsive">
         {IsLoading && <Loader />}
         <h1>All Category</h1>

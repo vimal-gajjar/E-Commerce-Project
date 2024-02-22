@@ -42,9 +42,6 @@ const Footer = () => {
                     About
                   </Link>
                 </li>
-                <li>
-                  <a href="javascript:void(0)">Contact</a>
-                </li>
               </ul>
             </div>
             <div className="col-md-3 contact">
@@ -61,41 +58,17 @@ const Footer = () => {
             <div className="col-md-3">
               <h5>Follow Us</h5>
               <ul className="social-media">
-                <li>
-                  <a
-                    className="wp"
-                    href="https://www.whatsapp.com/"
-                    target="_blank"
-                  >
-                    <FaWhatsapp />
-                  </a>
+                <li className="wp">
+                  <FaWhatsapp />
                 </li>
-                <li>
-                  <a
-                    className="insta"
-                    href="https://www.whatsapp.com/"
-                    target="_blank"
-                  >
-                    <FaInstagram />
-                  </a>
+                <li className="insta">
+                  <FaInstagram />
                 </li>
-                <li>
-                  <a
-                    className="linkedin"
-                    href="https://www.whatsapp.com/"
-                    target="_blank"
-                  >
-                    <FaLinkedinIn />
-                  </a>
+                <li className="linkedin">
+                  <FaLinkedinIn />
                 </li>
-                <li>
-                  <a
-                    className="twit"
-                    href="https://www.whatsapp.com/"
-                    target="_blank"
-                  >
-                    <FaTwitter />
-                  </a>
+                <li className="twit">
+                  <FaTwitter />
                 </li>
               </ul>
             </div>

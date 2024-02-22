@@ -13,24 +13,23 @@ const ViewProducts = () => {
   let { data } = useFetchCollection("products");
   let product = useSelector(selectproducts);
   let dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(STORE_PRODUCTS(data));
   }, [data]);
 
   let handleDelete = async (id, imgURL) => {
-    if (window.confirm("Are you sure ??")) {
-      try {
-        await deleteObject(ref(storage, imgURL));
-        const docref = doc(database, "products", id);
-        await deleteDoc(docref);
-        toast.success("Product deleted");
-      } catch (err) {
-        toast.error(err.message);
-      }
+    try {
+      await deleteObject(ref(storage, imgURL));
+      const docref = doc(database, "products", id);
+      await deleteDoc(docref);
+      toast.success("Product deleted");
+    } catch (err) {
+      toast.error(err.message);
     }
   };
   return (
-    <div className="container-fluid shadow">
+    <div className="container-fluid">
       <h1>All Products</h1>
       <hr />
       <div className="table-responsive">

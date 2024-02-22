@@ -13,6 +13,7 @@ import {
 } from "../redux/filterSlice";
 import Pagination from "./Pagination";
 import { selectCategories, store_categories } from "../redux/categorySlice";
+import Footer from "../pages/Footer";
 
 const Products = () => {
   let { data } = useFetchCollection("products");
@@ -76,7 +77,7 @@ const Products = () => {
                 onChange={handleCategory}
               >
                 {categories.map((cat, i) => (
-                  <option key={i}>{cat.title}</option>
+                  <option key={i} value={cat.title}>{cat.title}</option>
                 ))}
               </select>
 
@@ -176,18 +177,19 @@ const Products = () => {
               <>
                 <ListProducts products={currentProducts} />
                 {/* {filterdProduct.length > postPerPage ?? ( */}
-                  <Pagination
-                    totalPosts={allProducts.length}
-                    postPerPage={postPerPage}
-                    setCurrentPage={setCurrentPage}
-                    currentPage={currentPage}
-                  />
+                <Pagination
+                  totalPosts={allProducts.length}
+                  postPerPage={postPerPage}
+                  setCurrentPage={setCurrentPage}
+                  currentPage={currentPage}
+                />
                 {/* )} */}
               </>
             )}
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

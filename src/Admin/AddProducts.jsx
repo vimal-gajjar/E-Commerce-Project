@@ -132,7 +132,7 @@ const AddProducts = () => {
     }
   };
   return (
-    <div className="container-fluid shadow p-3">
+    <div className="container-fluid p-3">
       <h1>{id ? "Edit" : "Add"} Products</h1>
       <hr />
       <form onSubmit={handlesubmit} encType="multipart/form-data">
