@@ -80,7 +80,7 @@ const Header = () => {
     dispatch(filter_by_search({ products, search }));
   }, [search]);
 
-  document.title = "First React Project";
+  document.title = "Quick Pick";
   return (
     <>
       <nav className="navbar navbar-expand-sm">
