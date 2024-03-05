@@ -54,7 +54,22 @@ const ProductDetail = () => {
           /> */}
           </div>
           <div className="col-md-6 pro-detail">
-            <h2>{product.name}</h2>
+            <div className="row">
+              <div className="col-md-10">
+                <h2>{product.name}</h2>
+              </div>
+              <div className="col-md-2">
+                {product.stock > 0 ? (
+                  <span className="badge rounded-pill text-bg-success mb-2 stock-badge">
+                    <FaCheck /> In stock
+                  </span>
+                ) : (
+                  <span className="badge rounded-pill text-bg-danger mb-2 stock-badge">
+                    <GiCrossMark /> Out of stock
+                  </span>
+                )}
+              </div>
+            </div>
             <h4 className="mb-4">
               <PiCurrencyInrBold /> {product.price}.00
             </h4>
@@ -62,7 +77,7 @@ const ProductDetail = () => {
               <strong>Brand:</strong> {product.brand}
             </p>
 
-            {product.stock > 0 ? (
+            {/* {product.stock > 0 ? (
               <span className="badge rounded-pill text-bg-success mb-2 stock-badge">
                 <FaCheck /> In stock
               </span>
@@ -70,7 +85,7 @@ const ProductDetail = () => {
               <span className="badge rounded-pill text-bg-danger mb-2 stock-badge">
                 <GiCrossMark /> Out of stock
               </span>
-            )}
+            )} */}
 
             {product.stock > 0 && (
               <p>

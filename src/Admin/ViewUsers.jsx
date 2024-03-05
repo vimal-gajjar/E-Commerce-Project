@@ -45,7 +45,7 @@ const ViewUsers = () => {
               </tr>
             )}
             {users.map((user, i) => (
-              <tr>
+              <tr key={i}>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>{user.role}</td>

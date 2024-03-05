@@ -17,6 +17,7 @@ const filterSlice = createSlice({
 
     filter_by_category(state, action) {
       const { allProducts, category } = action.payload;
+
       if (category != "") {
         const filterProduct = allProducts.filter(
           (item) => item.category == category
@@ -29,7 +30,7 @@ const filterSlice = createSlice({
     filter_by_price(state, action) {
       const { allProducts, price } = action.payload;
       const filterProduct = allProducts.filter((product) => {
-        return Number(product.price) <= Number(price);
+        return parseInt(product.price) <= parseInt(price);
       });
       if (filterProduct.length != 0) {
         state.filters = filterProduct;

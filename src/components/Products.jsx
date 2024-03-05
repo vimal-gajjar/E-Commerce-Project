@@ -42,23 +42,25 @@ const Products = () => {
   const [category, setCategory] = useState("");
   const allProducts = useSelector(selectproducts);
 
-  const [price, setPrice] = useState(1000);
+  const [price, setPrice] = useState(500);
   const searchvalue = useSelector(selectsearchvalue);
   const pricevalue = useSelector(selectprice);
   const categoryvalue = useSelector(selectcategory);
 
+  let handleCategory = (e) => {
+    setCategory(e.target.value);
+  };
   useEffect(() => {
     dispatch(filter_by_category({ allProducts, category }));
   }, [category]);
 
+  let handlePrice = (e) => {
+    setPrice(e.target.value);
+  };
   useEffect(() => {
     dispatch(filter_by_price({ allProducts, price }));
   }, [price]);
 
-  let handleCategory = (e) => {
-    setCategory(e.target.value);
-    dispatch(filter_by_category({ allProducts, category }));
-  };
   return (
     <>
       <div className="container mt-5 mb-5">
@@ -77,7 +79,9 @@ const Products = () => {
                 onChange={handleCategory}
               >
                 {categories.map((cat, i) => (
-                  <option key={i} value={cat.title}>{cat.title}</option>
+                  <option key={i} value={cat.title}>
+                    {cat.title}
+                  </option>
                 ))}
               </select>
 
@@ -90,9 +94,9 @@ const Products = () => {
                   aria-describedby="helpId"
                   min={0}
                   max={10000}
-                  step={1000}
+                  step={500}
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={handlePrice}
                 />
                 <p>Rs.{price}</p>
               </div>
@@ -175,15 +179,19 @@ const Products = () => {
               </>
             ) : (
               <>
-                <ListProducts products={currentProducts} />
-                {/* {filterdProduct.length > postPerPage ?? ( */}
-                <Pagination
-                  totalPosts={allProducts.length}
-                  postPerPage={postPerPage}
-                  setCurrentPage={setCurrentPage}
-                  currentPage={currentPage}
-                />
-                {/* )} */}
+                {filterdProduct.length != 0 ? (
+                  <>
+                    <ListProducts products={currentProducts} />
+                    <Pagination
+                      totalPosts={allProducts.length}
+                      postPerPage={postPerPage}
+                      setCurrentPage={setCurrentPage}
+                      currentPage={currentPage}
+                    />
+                  </>
+                ) : (
+                  <h1>No Product Found</h1>
+                )}
               </>
             )}
           </div>

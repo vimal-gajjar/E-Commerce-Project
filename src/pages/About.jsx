@@ -6,7 +6,7 @@ const About = () => {
     <>
       <div className="container">
         <div className="mt-5 mb-5">
-          <h2 className="newH1">About Us</h2>
+          <h1 className="newH1">About Us</h1>
           <hr />
           <p>Welcome to our e-commerce website!</p>
           <p>
@@ -33,8 +33,9 @@ const About = () => {
           </p>
           <p>
             For any questions, feedback, or assistance, please don't hesitate to
-            contact us at support@quickpick.com.
+            contact us at info@quickpick.com.
           </p>
+          
         </div>
       </div>
       <Footer />

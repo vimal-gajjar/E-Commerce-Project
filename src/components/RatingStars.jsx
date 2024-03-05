@@ -3,7 +3,7 @@ import Star from "./Star";
 import "../style/RatingStar.css";
 
 const RatingStars = () => {
-  const [gradeIndex, setGradeIndex] = useState();
+  const [gradeIndex, setGradeIndex] = useState(0);
   const GRADES = ["Poor", "Fair", "Good", "Very good", "Excellent"];
   const activeStar = {
     fill: "yellow",

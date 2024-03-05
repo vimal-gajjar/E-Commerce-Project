@@ -13,7 +13,7 @@ const ViewProducts = () => {
   let { data } = useFetchCollection("products");
   let product = useSelector(selectproducts);
   let dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(STORE_PRODUCTS(data));
   }, [data]);
