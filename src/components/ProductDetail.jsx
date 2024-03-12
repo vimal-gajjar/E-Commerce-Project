@@ -33,7 +33,7 @@ const ProductDetail = () => {
         <hr />
         <div className="row pb-5">
           <div className="col-md-6">
-            <ReactImageMagnify
+            {/* <ReactImageMagnify
               {...{
                 smallImage: {
                   alt: product.name,
@@ -46,12 +46,12 @@ const ProductDetail = () => {
                   height: 1700,
                 },
               }}
-            />
-            {/* <img
+            /> */}
+            <img
             src={product.imageURL}
             alt="product-image"
             className="img-fluid"
-          /> */}
+          />
           </div>
           <div className="col-md-6 pro-detail">
             <div className="row">
