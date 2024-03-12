@@ -92,7 +92,7 @@ const Products = () => {
                   className="form-range"
                   name="price"
                   aria-describedby="helpId"
-                  min={0}
+                  min={500}
                   max={10000}
                   step={500}
                   value={price}
@@ -103,62 +103,6 @@ const Products = () => {
             </div>
           </div>
           <div className="col-md-10">
-            {/* {searchvalue == "" ? (
-              <>
-                <ListProducts products={currentProducts} />
-                {filterdProduct.length > postPerPage ?? (
-                  <Pagination
-                    totalPosts={product.length}
-                    postPerPage={postPerPage}
-                    setCurrentPage={setCurrentPage}
-                    currentPage={currentPage}
-                  />
-                )}
-              </>
-            ) : (
-              <>
-                {filterdProduct.length == 0 ? (
-                  <h1>No Product Found</h1>
-                ) : (
-                  <>
-                    <ListProducts products={filterdProduct} />
-                    {filterdProduct.length > postPerPage ?? (
-                      <Pagination
-                        totalPosts={filterdProduct.length}
-                        postPerPage={postPerPage}
-                        setCurrentPage={setCurrentPage}
-                        currentPage={currentPage}
-                      />
-                    )}
-                  </>
-                )}
-              </>
-            )} */}
-
-            {/* {filterdProduct.length == 0 ? (
-              <>
-                <ListProducts products={currentProducts} />
-                <Pagination
-                  totalPosts={product.length}
-                  postPerPage={postPerPage}
-                  setCurrentPage={setCurrentPage}
-                  currentPage={currentPage}
-                />
-              </>
-            ) : (
-              <>
-                <ListProducts products={filterdProduct} />
-                {filterdProduct.length > postPerPage ?? (
-                  <Pagination
-                    totalPosts={filterdProduct.length}
-                    postPerPage={postPerPage}
-                    setCurrentPage={setCurrentPage}
-                    currentPage={currentPage}
-                  />
-                )}
-              </>
-            )} */}
-
             {searchvalue != "" || pricevalue != 0 || categoryvalue != "" ? (
               <>
                 {filterdProduct.length == 0 ? (
@@ -179,19 +123,13 @@ const Products = () => {
               </>
             ) : (
               <>
-                {filterdProduct.length != 0 ? (
-                  <>
-                    <ListProducts products={currentProducts} />
-                    <Pagination
-                      totalPosts={allProducts.length}
-                      postPerPage={postPerPage}
-                      setCurrentPage={setCurrentPage}
-                      currentPage={currentPage}
-                    />
-                  </>
-                ) : (
-                  <h1>No Product Found</h1>
-                )}
+                <ListProducts products={currentProducts} />
+                <Pagination
+                  totalPosts={allProducts.length}
+                  postPerPage={postPerPage}
+                  setCurrentPage={setCurrentPage}
+                  currentPage={currentPage}
+                />
               </>
             )}
           </div>
