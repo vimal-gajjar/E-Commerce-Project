@@ -21,18 +21,18 @@
   display: inline-block;
   position: relative;
 }
-.footer .quick-link li a:before,
+.footer .quick-link li a::before,
 .footer .contact a::before {
   content: "";
   position: absolute;
   background: #fff;
-  height: 1px;
+  height: 0.5 px;
   width: 0;
   bottom: 0;
   transition: all 0.3s ease-in-out;
 }
 
-.footer .quick-link li a:hover:before,
+.footer .quick-link li a:hover::before,
 .footer .contact a:hover::before {
   width: 100%;
 }

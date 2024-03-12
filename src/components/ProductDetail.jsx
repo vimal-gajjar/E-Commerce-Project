@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { STORE_PRODUCTS, selectproducts } from "../redux/productSlice";
+import { selectproducts } from "../redux/productSlice";
 import { useParams } from "react-router-dom";
 import {
   add_to_cart,
@@ -11,7 +11,7 @@ import {
 import { FaCheck } from "react-icons/fa";
 import { GiCrossMark } from "react-icons/gi";
 import { toast } from "react-toastify";
-import ReactImageMagnify from "react-image-magnify";
+// import ReactImageMagnify from "react-image-magnify";
 import { PiCurrencyInrBold } from "react-icons/pi";
 import Footer from "../pages/Footer";
 
