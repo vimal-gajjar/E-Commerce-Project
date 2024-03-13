@@ -23,6 +23,7 @@ const Products = () => {
 
   let [currentPage, setCurrentPage] = useState(1);
   let [postPerPage, setPostperPage] = useState(8);
+  const [initialRender, setInitialRender] = useState(true);
 
   useEffect(() => {
     dispatch(STORE_PRODUCTS(data));
@@ -51,15 +52,21 @@ const Products = () => {
     setCategory(e.target.value);
   };
   useEffect(() => {
-    dispatch(filter_by_category({ allProducts, category }));
-  }, [category]);
+    if (!initialRender) {
+      dispatch(filter_by_category({ allProducts, category }));
+    }
+  }, [category, initialRender]);
 
   let handlePrice = (e) => {
     setPrice(e.target.value);
   };
   useEffect(() => {
-    dispatch(filter_by_price({ allProducts, price }));
-  }, [price]);
+    if (!initialRender) {
+      dispatch(filter_by_price({ allProducts, price }));
+    } else {
+      setInitialRender(false);
+    }
+  }, [price, initialRender]);
 
   return (
     <>
